@@ -1,5 +1,7 @@
 package server;
 
+import server.remoteService.ExecuteService;
+
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -9,22 +11,16 @@ import java.rmi.server.UnicastRemoteObject;
  * Created by pkogler on 16.03.2016.
  */
 public class Server {
-    private static int registryPort;
-    private static int stubPort;
-    private final static String serviceName = "You wanna CalcPi [*_*].exe";
+    private final static int registryPort = Registry.REGISTRY_PORT;
+    public final static String serviceName = "You wanna CalcPi [*_*].exe";
 
     public static void main(String[] args) {
-        //Assigning the registry Port
-        registryPort = Integer.parseInt(args[0]);
-        //Assigning the stubPort
-        stubPort = Integer.parseInt(args[1]);
-
         /**
          * Implementing a Security Manager
          */
-        if (System.getSecurityManager() == null) {
+        /**if (System.getSecurityManager() == null) {
             System.setSecurityManager(new SecurityManager());
-        }
+        }**/
         try {
             //Creating the Server Service
             ServerService serverService = new ServerService();
@@ -36,7 +32,7 @@ public class Server {
             * Create the stub for Communication between Server and the Client
             * through the Skellet
             */
-            ServerService stub = (ServerService) UnicastRemoteObject.exportObject(serverService, stubPort);
+            ExecuteService stub = (ExecuteService) UnicastRemoteObject.exportObject(serverService, 0);
 
             //Binding the created Service to the registry
             registry.rebind(serviceName, stub);
