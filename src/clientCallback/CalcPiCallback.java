@@ -11,6 +11,8 @@ public class CalcPiCallback implements Callback {
     private boolean clientStub;
 
     /**
+     * This method returns the Result and
+     * unexports the UnicastRemoteObject if needed
      *
      * @param result
      * @throws RemoteException
@@ -24,6 +26,8 @@ public class CalcPiCallback implements Callback {
     }
 
     /**
+     * This Method sets wether a clientStub is
+     * implemented or not
      *
      * @param clientStub
      * @throws RemoteException

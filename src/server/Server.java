@@ -1,6 +1,7 @@
 package server;
 
 import server.remoteService.ExecuteService;
+import server.remoteService.ServerService;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -8,6 +9,10 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
+ * This Class describes the Server
+ * It creates a Registry and executes the ServerService
+ * The Server waits until some Client is invoking its methods
+ *
  * Created by pkogler on 16.03.2016.
  */
 public class Server {

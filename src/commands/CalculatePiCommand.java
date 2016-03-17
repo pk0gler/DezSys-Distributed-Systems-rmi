@@ -9,11 +9,11 @@ import java.rmi.RemoteException;
  * Created by pkogler on 16.03.2016.
  */
 public class CalculatePiCommand implements Command {
-    //
+    //Digits
     private int digits;
-    //
+    //Callback
     private Callback callback;
-    //
+    //result
     private BigDecimal result;
 
     private static final long serialVersionUID = 2478264756614L;
@@ -28,7 +28,13 @@ public class CalculatePiCommand implements Command {
      */
     private static final int roundingMode = BigDecimal.ROUND_HALF_EVEN;
 
-
+    /**
+     * Construktor
+     * Initializes Attributes
+     *
+     * @param digits
+     * @param callback
+     */
     public CalculatePiCommand(int digits, Callback callback) {
         this.digits = digits;
         this.callback = callback;

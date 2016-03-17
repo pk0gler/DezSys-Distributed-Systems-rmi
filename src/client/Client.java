@@ -13,6 +13,11 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
+ * This Class describes the Client
+ * It implements a Callback and its own Stub
+ * The Client is invoking a remote Method from
+ * the specified Server
+ *
  * Created by pkogler on 16.03.2016.
  */
 public class Client {
@@ -20,6 +25,13 @@ public class Client {
     private static String serviceName;
     private final static int registryPort = Registry.REGISTRY_PORT;
 
+    /**
+     * This is the main Method
+     * all Operations are made here
+     * Exception handling with try catch
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         host = args[0];
         serviceName = Server.serviceName;

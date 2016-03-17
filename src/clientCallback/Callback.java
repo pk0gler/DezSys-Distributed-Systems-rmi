@@ -9,12 +9,17 @@ import java.rmi.RemoteException;
  */
 public interface Callback extends Remote {
     /**
+     * This method returns the Result and
+     * unexports the UnicastRemoteObject if needed
+     *
      * @param result
      * @throws RemoteException
      */
     void getResult(BigDecimal result) throws RemoteException;
 
     /**
+     * This Method sets wether a clientStub is
+     * implemented or not
      *
      * @param clientStub
      * @throws RemoteException

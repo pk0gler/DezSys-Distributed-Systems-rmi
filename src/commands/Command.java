@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public interface Command extends Serializable {
     /**
-     *
+     * Execute Method
      */
     public void execute();
 }
