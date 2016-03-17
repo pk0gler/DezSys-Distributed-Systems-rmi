@@ -9,6 +9,12 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class CalcPiCallback implements Callback {
     private boolean clientStub;
+
+    /**
+     *
+     * @param result
+     * @throws RemoteException
+     */
     @Override
     public void getResult(BigDecimal result) throws RemoteException {
         System.out.println("Result:\t" + result);
@@ -17,6 +23,11 @@ public class CalcPiCallback implements Callback {
         }
     }
 
+    /**
+     *
+     * @param clientStub
+     * @throws RemoteException
+     */
     @Override
     public void setClientStub(boolean clientStub) throws RemoteException {
         this.clientStub = clientStub;

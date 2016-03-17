@@ -38,7 +38,7 @@ public class Server {
             registry.rebind(serviceName, stub);
 
             //Feedback for User
-            System.out.println("Service has been bound! \nPress Enter to terminate ...");
+            System.out.println("Service: "+serviceName+ " has been bound! \nPress Enter to terminate ...");
 
             //Closing Server
             while (System.in.read() != '\n') ;
